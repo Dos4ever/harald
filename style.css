@@ -1,0 +1,828 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all 0.2s linear;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth
+}
+
+
+:root {
+    --bg-color: #323946;
+    --second-bg-color: #1f242d; 
+    --text-color: #fff;
+    --main-color: #32ff6a;
+}
+
+html {
+    font-size: 62.5%;
+    /* overflow: hidden; */
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+section {
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.heading {
+    text-align: center;
+    font-size: 4rem;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    display: flex;
+    background: var(--bg-color);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.header .sticky {
+    border-bottom: 8rem solid rgba(0, 0, 0, .2);
+}
+
+.logo {
+    text-decoration: none;
+    cursor: default;
+    animation: slideRight 1s ease forwards;
+}
+
+.logo img {
+    width: 120px;    
+    border-image: fill;
+    border-radius: 5%;
+}
+
+.navbar a {
+    display: inline-block;
+    font-size: 18px;    
+    color: var(--main-color);
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 20px;
+    transition: .3s ease;
+    animation: slideTop .5s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+
+.navbar a:hover,    
+.navbar a.active {      
+    color: var(--text-color);        
+}   
+
+.socail-media {
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+    height: 40px;
+}
+
+.socail-media a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid transparent;
+    text-decoration: none;
+    transform: rotate(45deg);
+    transition: .5s ease;
+    opacity: 0;
+    animation: slideSocail .5s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+
+.socail-media a:hover {
+    border-color: var(--main-color);
+}
+
+.socail-media a i {
+    font-size: 24px;
+    color: var(--main-color);
+    transform: rotate(-45deg);
+}
+
+.home {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 8% 0;
+}
+
+.home-content {
+    max-width: 630px;
+}
+
+.home-content h1 {
+    font-size: 90px;  
+    display: inline-block;
+    line-height: 1.2;
+}
+
+.home-content h1 span {
+    position: relative;
+    display: inline-block;
+    font-size: 3rem; 
+    color: transparent;
+    -webkit-text-stroke: .7px var(--main-color);
+    /* animation: displayText 16s linear infinite; */
+    animation-delay: calc( 5s * var(--i));
+}
+
+@keyframes displayText {
+    25%, 100% {
+        display: none;
+    }            
+}
+
+.home-content h1 span::before {
+    content: attr(data-text);
+    position: absolute;
+    width: 0;
+    border-right: 2px solid var(--main-color);
+    color: var(--main-color);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: fill-text 4s linear infinite;
+}
+
+@keyframes fill-text {
+    10%, 100% {
+        width: 0;
+    }
+    70%, 90% {
+        width: 100%;
+    }
+}
+
+.home-content h2 {
+    font-size: 32px;    
+    margin: 20px 0;
+    color: var(--text-color);
+}
+
+.home-content h3 {
+    font-size: 20px;
+    line-height: 1.2;
+    padding-bottom: 4px;
+    color: var(--main-color);
+}
+
+.home-content p {
+    text-align: justify;
+    font-size: 16px;
+    margin: 15px 0 30px;
+
+}
+
+.btn{    
+    display: inline-block;
+    padding: 10px 28px;
+    background: var(--main-color);
+    border-radius: 6px;
+    box-shadow: 0 0 10px var(--main-color);
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-size: 16px;
+    color: var(--second-bg-color);
+    font-weight: 600;
+    transition: .5s ease;
+}    
+
+.btn:hover {        
+    background: transparent;
+    color: var(--text-color);
+}   
+
+.home-img .img-box {
+    position: relative;
+    width: 32vw;
+    height: 32vw;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+.home-img .img-box::before,
+.home-img .img-box::after  {
+    content: '';
+    position: absolute;
+    width: 650px;
+    height: 650px;
+    background: conic-gradient(transparent, transparent, transparent, var(--main-color));
+    transform: rotate(0deg);
+    animation: rotate-border 15s linear infinite;
+}
+
+.home-img .img-box::after {
+    animation-delay: -8s;
+}
+
+@keyframes rotate-border {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}   
+
+.home-img .img-box .img-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);  
+    border-radius: 50%;
+    border: .1px solid var(--bg-color);
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.home-img .img-box .img-item img {
+    position: absolute;
+    display: block;
+    width: 150%;
+    object-fit: cover;
+    mix-blend-mode: light;
+}
+
+
+/* Leistungen section start */
+.Leistungen {
+    min-height: 70vh;
+    width: 100vw;
+}
+
+.Leistungen .heading h1 {
+    font-size: 4rem;
+    color: var(--main-color);
+    font-weight: bold;
+  }
+.Leistungen .Leistungen-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin: 1rem auto;
+    width: 90%;
+}
+.Leistungen-box .box {
+    display: flex;
+    height: 40rem;
+    width: 45rem;
+    border-radius: 0.5rem;
+    margin: 2rem;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 0.5rem #333;
+}
+.Leistungen-box .box img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.Leistungen-box .box .info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(51, 51, 51, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    text-align: center;
+    color: #fff;
+    transform: scale(0);
+}
+.Leistungen-box .box .info h3 {
+    font-size: 3rem;
+}
+.Leistungen-box .box .info p {
+    font-size: 1.5rem;
+    border-top: 0.2rem solid var(--main-color);
+    border-bottom: 0.2rem solid var(--main-color);
+    margin: 1rem 2rem;
+}
+.Leistungen-box .box .info button {
+    outline: none;
+    border: none;
+    border-radius: 5rem;
+    color: #333;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    letter-spacing: 0.2rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    background: transparent;
+    /* Add transition to make the width change smooth */
+    height: 4rem;
+    width: 14rem;
+    background: #fff;
+}
+
+.Leistungen-box .box .info button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--main-color);
+    height: 100%;
+    width: 0%; /* Start with 0% width */
+    transition: width 0.4s ease; /* Smooth transition for width */
+    z-index: -1;
+}
+
+.Leistungen-box .box .info button:hover::before {
+    width: 100%; /* Expands width on hover */
+}
+
+.Leistungen-box .box:hover .info {
+    transform: scale(1);
+}
+  
+/* stand ort section start */
+.standort {
+    min-height: 50vh;
+    padding: 20px 20px;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* New Image Styling */
+.standort img {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.standort h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #333;
+    margin: 20px 0 20px 0;
+    white-space: nowrap; /* يمنع التفاف النص */
+    overflow: hidden;
+    position: relative;
+    animation: scrollText 10s linear infinite; /* حركة التمرير */
+}
+
+.standort h1 span {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--main-color);
+    margin: 20px 0 20px 0;
+}
+
+
+/* إعدادات خاصة للخريطة */
+.standort-map {
+    min-height: 40vh;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.standort-map iframe {
+    width: 100%;
+    min-height: 40vh;
+    border: 0;
+    border: none;
+    border-radius: 8px;
+}
+
+/* Contact Styling */
+.Kontakt .heading  {
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.Kontakt .heading span {
+    color: var(--main-color);
+    
+}
+.Kontakt {
+    position: relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, .2);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: var(--bg-color);
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    gap: 50px;
+    /* background: red; this for the container just for testing */
+    margin-top: 30px;
+}
+
+.container .contactInfo {    
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .contactInfo .box {
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+    cursor: pointer;
+}
+
+.container .contactInfo .box .icon {    
+    position: relative;
+    min-width: 60px;    
+    height: 60px;    
+    background: repeating-conic-gradient(    
+        from 27.5deg,
+        var(--main-color) 0%, var(--main-color) 10%, transparent 10%, transparent 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .contactInfo .box .icon::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-conic-gradient(    
+        from 117.5deg,
+        var(--main-color)0%, var(--main-color) 10%, transparent 10%, transparent 50%);
+    
+}   
+
+.container .contactInfo .box .icon::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: var(--bg-color);
+}
+
+.container .contactInfo .box .icon b {    
+    position: absolute;
+    inset: 8px;
+    background: var(--main-color);
+    z-index: 2;
+}
+
+.container .contactInfo .box .icon i {    
+    position: relative;
+    z-index: 1000;
+    color: var(--bg-color);
+    font-size: 1.25rem;
+}
+
+.container .contactInfo .box .text {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    font-weight: 300;
+}
+
+.container .contactInfo .box .text h3 {
+    font-weight: 500;
+    color: var(--main-color);
+}
+
+.container .contactInfo .txt {
+    color: var(--text-color);
+    margin-top: 50px;
+    font-weight: 500;
+    padding-left: 2px;
+    line-height: 1rem;
+}
+
+.container .contactInfo .sci {    
+    position: relative;
+    display: flex;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+.container .contactInfo .sci li {    
+    list-style: none;
+}
+
+.container .contactInfo .sci li a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: 0.25s;
+}
+
+.container .contactInfo .sci li a:hover {
+    color: var(--main-color);
+    filter: drop-shadow(0 0 5px var(--main-color));
+}
+
+.container .contactForm {
+    position: relative;
+    width: 40%;
+    background: repeating-conic-gradient(    
+        from var(--a),
+        var(--main-color) 0%, var(--main-color) 10%, transparent 10%, transparent 50%);
+    animation: animate 6s linear infinite;
+    padding: 60px;
+}
+
+.container .contactForm::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-conic-gradient(    
+        from var(--a),
+        var(--main-color) 0%, var(--main-color) 10%, transparent 10%, transparent 50%);
+    animation: animate 6s linear infinite;
+    animation-delay: -1.5s;
+}
+
+.container .contactForm::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border: 20px solid var(--bg-color);
+    background: var(--bg-color);
+    animation: animate 6s linear infinite;
+    animation-delay: -4.5s;
+}
+
+@property --a {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes animate {    
+    0% {
+        --a: 0deg;
+    }        
+    100% {
+        --a: 360deg;
+    }
+}
+
+.container .contactForm form {
+    position: relative;
+    z-index: 10;
+}
+
+.container .contactForm form h2 {
+    font-size: 2.2rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.container .contactForm form .inputBox {
+    position: relative;            
+    width: 100%;
+    margin-top: 20px;
+}
+
+.container .contactForm form .inputBox input,
+.container .contactForm form .inputBox textarea {
+    width: 100% !important;
+    padding: 5px 0;
+    font-size: 1.5rem;
+    margin: 10px 0;
+    border: none;
+    background: transparent;
+    border-bottom: 2px solid var(--main-color);
+    color: var(--text-color);
+    outline: none;
+    resize: none;
+}
+
+.container .contactForm form .inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    margin: 10px 0;
+    font-size: 1.5rem;
+    pointer-events: none;
+    transition: 0.5s;
+    color: var(--text-color);
+}
+
+.container .contactForm form .inputBox input:focus ~ span,
+.container .contactForm form .inputBox textarea:focus ~ span,
+.container .contactForm form .inputBox input:valid ~ span,
+.container .contactForm form .inputBox textarea:valid ~ span {
+    color: var(--main-color);
+    font-size: 0.9rem;
+    transform: translateY(-25px);
+}
+
+.container .contactForm form .inputBox input[type="submit"] {
+    padding: 10px 28px;
+    background: var(--main-color);
+    border-radius: 6px;
+    padding: 10px;
+    box-shadow: 0 0 10px var(--main-color);
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--second-bg-color);
+    font-weight: 600;
+    transition: .5s ease;
+}
+
+.container .contactForm form .inputBox input[type="submit"]:hover {        
+    background: transparent;
+    color: var(--text-color);
+}   
+
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 9%;
+    background: var(--bg-color);
+}
+
+.footer-text p {
+    font-size: 1.6rem;
+}
+
+.footer-iconTop a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: .8rem;
+    background: var(--text-color);
+    border-radius: .8rem;
+    transition: .5s ease;
+}
+
+.footer-iconTop a:hover {
+    box-shadow: 0 0 1rem var(--text-color);
+}
+
+.footer-iconTop a i {
+    font-size: 2.4rem;
+    color: var(--second-bg-color);
+
+}
+
+/* Keyframes animation */
+@keyframes slideRight {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+@keyframes slideTop {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideSocail {
+    0% {
+        transform: translateX(100px) rotate(45deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0) rotate(45deg);
+        opacity: 1;
+    }
+}   
+ 
+@keyframes zoomOut {            
+    0% {
+        transform: scale(1.1);
+        opacity: 0;            
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}   
+
+/* now creating the responsive media query  */
+@media screen and (max-width: 991px) {
+    .header {                                        
+        padding: 15px 40px;                                    
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }           
+
+    .home {                                        
+        padding: 50px 40px 0;
+    }
+
+    .home-content h1 {
+        font-size: 3rem;
+    }
+
+    .home-content h2 {
+        font-size: 1.5rem;                
+    }
+
+    .home-content h3 {
+        font-size: 1.2rem;
+    }    
+    
+    .home-content p {
+        font-size: 0.8rem;
+    }    
+
+    .home-img {
+        width: 300px;
+        height: 300px;
+    }    
+
+    .home-img .img-box img {
+        max-width: 500px;
+    }    
+
+    .socail-media a {
+        font-size: 0.8rem;
+    }
+
+    .socail-media a i {
+        font-size: 1.5rem;
+    }
+    
+    .contact {
+        padding: auto;
+    }
+    .container {
+        flex-direction: column;
+    }
+    .container .contactInfo,
+    .container .contactForm {
+        width: 100%;
+    }
+    .container .contactForm {
+        padding: 40px;
+    }
+    .container .contactForm form {
+        padding: 10px;
+    }
+}
+

@@ -1,0 +1,106 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f3f6fa;
+    color: #333;
+}
+
+/* Section Styling */
+.last-projects {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #eef2f6, #ffffff);
+}
+
+.last-projects .heading {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.last-projects .heading span {
+    color: #4a90e2;
+    font-weight: bold;
+}
+
+/* Container Styling */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Project Card Styling */
+.project-card {
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: left;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Project Info Styling */
+.project-info {
+    padding: 20px;
+    text-align: left;
+}
+
+.project-info h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    color: #666;
+    line-height: 1.5;
+    font-size: 0.95em;
+    margin-bottom: 10px;
+}
+
+/* Show More Button Styling */
+.show-more-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.show-more-btn:hover {
+    background-color: #357ab7;
+}
+
+/* Additional Info (Hidden by Default) */
+.more-info {
+    display: none;
+    padding-top: 10px;
+    font-size: 0.9em;
+    color: #444;
+    border-top: 1px solid #ddd;
+    margin-top: 10px;
+}
