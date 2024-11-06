@@ -286,6 +286,10 @@ section {
     color: var(--main-color);
     font-weight: bold;
   }
+
+.Leistungen .heading span {
+    color: var(--main-color);
+}
 .Leistungen .Leistungen-box {
     display: flex;
     align-items: center;
@@ -450,29 +454,44 @@ section {
 }
 
 /* stand ort section start */
+
+
+.standort * {
+    position: relative;
+    z-index: 2;   /* Ensures text content is above the overlay  */
+}
+
 .standort {
-    min-height: 50vh;
-    padding: 20px 20px;
-    background-color: #f9f9f9;
+    position: relative;
+    min-height: 80vh;
+    padding: 5px 5px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
+    overflow: hidden;
 }
 
-/* New Image Styling */
-.standort img {
+.standort::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
+    height: 100%;
+    background-image: url('img/heiF.jpg');
+    background-size: cover;
+    background-position: center;
+    filter:blur(5px) opacity(0.7);  /* Blur and opacity applied only to background */
+    z-index: 1; /* Behind content */
 }
 
 .standort h1 {
-    font-size: 2.5rem;
+    font-size: 4rem;
     font-weight: 600;
-    color: #333;
-    margin: 20px 0 20px 0;
+    color: var(--text-color);
+    margin: 5px 0 5px 0;
     white-space: nowrap; /* يمنع التفاف النص */
     overflow: hidden;
     position: relative;
@@ -480,10 +499,10 @@ section {
 }
 
 .standort h1 span {
-    font-size: 2.5rem;
+    font-size: 4rem;
     font-weight: 600;
     color: var(--main-color);
-    margin: 20px 0 20px 0;
+    margin: 5px 0 5px 0;
 }
 
 
@@ -498,6 +517,7 @@ section {
 }
 
 .standort-map iframe {
+    display: flex;
     width: 100%;
     min-height: 40vh;
     border: 0;
