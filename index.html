@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body>
@@ -47,7 +49,7 @@ Unser Kundendienst ist für Sie das, wenn es um Wartung und Reparatur Ihrer Heiz
 
 Vereinbaren Sie gleich einen Beratungstermin - Wir freuen uns auf Ihre Kontaktaufnahme!
             </p>
-            <a href="#contact" class="btn">Kontakt</a>
+            <a href="#Kontakt" class="btn">Kontakt</a>
         </div>
             
             <div class="home-img">
@@ -94,11 +96,20 @@ Vereinbaren Sie gleich einen Beratungstermin - Wir freuen uns auf Ihre Kontaktau
                     <a href="#"><button>view</button></a>
                 </div>
             </div>
-
-
         </div>
+
     </section>
 
+        <div class="modal" id="serviceModal" >
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1 id="modalTitle"></h1>
+                <p id="modalDescriptionTop"></p>
+                <img id="modalImage" src="img/3.jpeg" alt="Service Image">
+                <p id="modalDescriptionBottom"></p>
+            </div>
+        </div>
+        
     
     <!-- Stand ort section start -->
     <section class="standort" id="standort">
